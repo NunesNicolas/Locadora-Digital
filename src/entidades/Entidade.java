@@ -1,9 +1,18 @@
 package entidades;
-// Essa classe vai tornar as coisas mais dificeis
+
 public class Entidade {
 
-        private int id;
-        private String nome;
+        protected int id;
+        protected String nome;
+
+        public Entidade(String nome, int id) {
+            this.nome = nome;
+            this.id = id;
+        }
+
+        public Entidade(){
+
+        }
     
         public void setId(int id) {
             this.id = id;
@@ -18,6 +27,4 @@ public class Entidade {
         public String getNome() {
             return nome;
         }
-       
-    
 }

@@ -3,24 +3,32 @@ package entidades;
 public class Categoria extends Entidade {
 
     private char tipo;
-    private int id;
-    private String nome;
+    // private int id;
+    // private String nome;
 
-    public void setId(int id) {
-        this.id = id;
+    public Categoria(String nome, int id) {
+        super(nome, id);
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public Categoria() {
+        super();
     }
+
+    // public void setId(int id) {
+    //     this.id = id;
+    // }
+
+    // public void setNome(String nome) {
+    //     this.nome = nome;
+    // }
     
-    public int getId() {
-        return id;
-    }
+    // public int getId() {
+    //     return id;
+    // }
 
-    public String getNome() {
-        return nome;
-    }
+    // public String getNome() {
+    //     return nome;
+    // }
    
 
     public void setTipo(char tipo) {
@@ -64,7 +72,8 @@ public class Categoria extends Entidade {
         }
 
         final Categoria other = (Categoria) obj;
-        if (id != other.id) {
+
+        if (id != other.getId()) {
             return false;
         }
 
