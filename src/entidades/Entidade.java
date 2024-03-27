@@ -1,5 +1,5 @@
 package entidades;
-
+// Essa classe vai tornar as coisas mais dificeis
 public class Entidade {
 
         private int id;

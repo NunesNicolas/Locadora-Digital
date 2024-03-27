@@ -54,4 +54,45 @@ public class CategoriaDAO {
         }
             return categorias;
     }
+
+    public static boolean atualizar(Categoria categoria) {
+        try {
+
+            Connection conexao = Conexao.getConexao();
+            String sql = "UPDATE categoria SET nome = ?, tipo = ? WHERE id = ?";
+            PreparedStatement comando = conexao.prepareStatement(sql);
+
+            comando.setString(1, categoria.getNome());
+            comando.setString(2, String.valueOf(categoria.getTipo()));
+            comando.setInt(3, categoria.getId());
+            
+            int numeroDeLinhas = comando.executeUpdate();
+            
+            comando.close();
+            
+            return numeroDeLinhas > 0;
+        } catch (SQLException erro) {
+            return false;
+        }
+    }
+
+    public static boolean excluir(int id) {
+        try {
+
+            Connection conexao = Conexao.getConexao();
+            String sql = "DELETE FROM categoria WHERE id = ?";
+            PreparedStatement comando = conexao.prepareStatement(sql);
+
+            comando.setInt(1, id);
+
+            int numeroDeLinhas = comando.executeUpdate();
+            
+            comando.close();
+
+            return numeroDeLinhas > 0;
+        } catch(SQLException erro) {
+            System.out.println(erro.getMessage());
+            return false;
+        }
+    }
 }
