@@ -20,6 +20,8 @@ public class Item {
         this.categoria = categoria;
     }
 
+    public Item(){}
+
     public int getId() {
         return id;
     }

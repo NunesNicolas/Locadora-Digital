@@ -6,9 +6,9 @@ import java.sql.SQLException;
 
 public class Conexao {
     //private static final String LINK = "jdbc:mysql://localhost/locadora_digital";
-    private static final String LINK = "jdbc:mysql://sql10.freemysqlhosting.net/sql10693762";
-    private static final String USUARIO = "sql10693762";
-    private static final String SENHA = "LlJZkzD2aM";
+    private static final String LINK = "jdbc:mysql://localhost/locadora_digital";
+    private static final String USUARIO = "root";
+    private static final String SENHA = "";
    
     public static Connection getConexao() {
         try {

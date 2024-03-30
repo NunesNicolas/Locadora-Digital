@@ -13,6 +13,9 @@ public class Jogo extends Item {
     public Jogo(Categoria categoria){
         super(categoria);
     }
+    public Jogo(){
+        super();
+    }
 
     public String getPlataforma() {
         return plataforma;
@@ -35,5 +38,20 @@ public class Jogo extends Item {
     public void setMemoria(int memoria) {
         this.memoria = memoria;
     }
+
+    @Override
+    public String toString() {
+
+
+        return "Categoria"
+            +"\n" + " ID: " + id
+            +"\n" + " Titulo: " + titulo
+            +"\n" + " Preco= " + preco
+                +"\n" + " Descricao: " + descricao
+                +"\n" + " NumeroDias: " + numdias
+                +"\n" + " Plataforma: " + plataforma
+                +"\n" + " Espaço de memoria: " + memoria + " GB"
+                +"\n" + " Duracao: " + duracao;     
+        }
 
 }
