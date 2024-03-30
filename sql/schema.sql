@@ -19,7 +19,6 @@ CREATE TABLE `jogo`(
   `memoria` int(10) DEFAULT NULL,
   `numeroDias` int(10) NOT NULL,  
   `plataforma` varchar(60) NOT NULL
-
 ) ENGINE=InnoDb DEFAULT CHARSET=latin1;
 
 CREATE TABLE `itemlocacao` (

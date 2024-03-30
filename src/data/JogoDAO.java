@@ -1,13 +1,8 @@
 package data;
 
 import config.Conexao;
-import entidades.Categoria;
 import entidades.Jogo;
 import java.util.ArrayList;
-import java.util.List;
-
-
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Connection;
@@ -34,6 +29,7 @@ public class JogoDAO {
 
             return resultado > 0;
         }
+        
         catch (Exception e) {
             System.out.println(e);
             return false;

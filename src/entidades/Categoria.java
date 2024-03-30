@@ -3,8 +3,6 @@ package entidades;
 public class Categoria extends Entidade {
 
     private char tipo;
-    // private int id;
-    // private String nome;
 
     public Categoria(String nome, int id) {
         super(nome, id);
@@ -13,24 +11,7 @@ public class Categoria extends Entidade {
     public Categoria() {
         super();
     }
-
-    // public void setId(int id) {
-    //     this.id = id;
-    // }
-
-    // public void setNome(String nome) {
-    //     this.nome = nome;
-    // }
-    
-    // public int getId() {
-    //     return id;
-    // }
-
-    // public String getNome() {
-    //     return nome;
-    // }
    
-
     public void setTipo(char tipo) {
         this.tipo = tipo;
     }

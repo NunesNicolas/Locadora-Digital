@@ -1,19 +1,22 @@
 package entidades;
 
 public class Cliente extends Entidade {
-private String email;
-private String telefone;
+    private String email;
+    private String telefone;
 
-public String getEmail() {
-    return email;
-}
-public void setEmail(String email) {
-    this.email = email;
-}
-public String getTelefone() {
-    return telefone;
-}
-public void setTelefone(String telefone) {
-    this.telefone = telefone;
-}
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+    
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
 }
