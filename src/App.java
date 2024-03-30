@@ -10,7 +10,7 @@ public class App {
         //CategoriaDAO.criar(categoria);
         //categoria.setId(2);
         //System.out.println(CategoriaDAO.atualizar(categoria));
-        System.out.println(CategoriaDAO.excluir(3));
+        //System.out.println(CategoriaDAO.excluir(3));
         System.out.println(CategoriaDAO.listar());
     }
 }

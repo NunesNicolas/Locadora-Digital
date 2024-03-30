@@ -15,6 +15,11 @@ public class Item {
         this.id = id;
         this.titulo = titulo;
     }
+
+    public Item(Categoria categoria){
+        this.categoria = categoria;
+    }
+
     public int getId() {
         return id;
     }
