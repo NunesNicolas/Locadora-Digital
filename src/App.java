@@ -79,17 +79,16 @@ public class App {
         while (true) {
             System.out.println("=== Menu Administrador ===");
             System.out.println("Escolha uma opção:");
-            System.out.println("1 - Criar categoria");
-            System.out.println("2 - Listar categorias");
-            System.out.println("3 - Excluir categoria");
-            System.out.println("4 - Atualizar categoria");
             System.out.println("5 - Criar jogo");
+            System.out.println("2 - Buscar jogo");
             System.out.println("6 - Listar jogos");
             System.out.println("7 - Excluir jogo");
             System.out.println("8 - Atualizar jogo");
             System.out.println("9 - Listar clientes");
             System.out.println("10 - Excluir cliente");
             System.out.println("0 - Sair");
+            //System.out.println("3 - Buscar cliente");
+            //System.out.println("8 - Atualizar cliente");
 
             int opcao = scanner.nextInt();
 

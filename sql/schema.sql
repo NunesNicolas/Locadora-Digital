@@ -1,15 +1,3 @@
-CREATE TABLE `categoria`(
-  `id` int(10) NOT NULL,
-  `nome` varchar(60) NOT NULL,
-  `tipo` char(10) NOT NULL
-) ENGINE=InnoDb DEFAULT CHARSET=latin1;
-
- CREATE TABLE `cliente`(
-  `id` int(10) NOT NULL,
-  `nome` varchar(60) NOT NULL,
-  `email` varchar(100) NOT NULL
-) ENGINE=InnoDb DEFAULT CHARSET=latin1;
-
 CREATE TABLE `jogo`(
   `id` int(10) NOT NULL,
   `titulo` varchar(60) NOT NULL,
@@ -43,12 +31,6 @@ CREATE TABLE `usuario` (
   `senha` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-ALTER TABLE `categoria`
-  ADD PRIMARY KEY (`id`);
-
-ALTER TABLE `cliente`
-  ADD PRIMARY KEY (`id`);
-
 ALTER TABLE `itemlocacao`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_ItemLocacao_Jogo1_idx` (`Jogo_id`),
@@ -59,17 +41,10 @@ ALTER TABLE `jogo`
 
 ALTER TABLE `locacao`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_Locacao_Cliente1_idx` (`Cliente_id`),
   ADD KEY `fk_Locacao_Usuario` (`usuario_id`);
 
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`id`);
-
-ALTER TABLE `categoria`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
-ALTER TABLE `cliente`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE `itemlocacao`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
@@ -85,5 +60,4 @@ ALTER TABLE `usuario`
 
 
 ALTER TABLE `locacao`
-  ADD CONSTRAINT `fk_Locacao_Cliente` FOREIGN KEY (`Cliente_id`) REFERENCES `cliente` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_Locacao_Usuario` FOREIGN KEY (`usuario_id`) REFERENCES `usuario` (`id`); 
