@@ -8,7 +8,6 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 public class App {
-    private static final int SENHA_ADMIN = 123321;
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -46,13 +45,13 @@ public class App {
         System.out.println("Digite seu login: ");
         String login = scanner.nextLine();
         System.out.println("Digite sua senha: ");
-        int senha = scanner.nextInt();
+        String senha = scanner.nextLine();
 
         try (Connection conexao = Conexao.getConexao()) {
             String sql = "SELECT * FROM usuario WHERE login = ? AND senha = ?";
             PreparedStatement ps = conexao.prepareStatement(sql);
             ps.setString(1, login);
-            ps.setInt(2, senha);
+            ps.setString(2, senha);
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {

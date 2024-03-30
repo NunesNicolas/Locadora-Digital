@@ -1,9 +1,8 @@
 # Compiled class file
 *.class
-
+*.Conexao.java
 #pastas da aplicação
 testes/
-
 # Log file
 *.log
 
