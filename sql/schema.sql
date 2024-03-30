@@ -5,7 +5,6 @@ CREATE TABLE `jogo`(
   `descricao` text,
   `numeroDias` int(10) NOT NULL,
   `memoria` int(10) DEFAULT NULL,
-  `numeroDias` int(10) NOT NULL,  
   `plataforma` varchar(60) NOT NULL
 ) ENGINE=InnoDb DEFAULT CHARSET=latin1;
 
