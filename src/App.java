@@ -1,4 +1,6 @@
 import config.Conexao;
+import data.UsuarioDAO;
+import entidades.Usuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -70,7 +72,29 @@ public class App {
     }
 
     public static void cadastrar() {
-        // Implementação do cadastro de usuário
+        Scanner scanner = new Scanner(System.in);
+        Usuario usuario = new Usuario();
+
+        System.out.print("\nNome: ");
+        usuario.setNome(scanner.nextLine());
+
+        System.out.print("Username/email: ");
+        String login = scanner.nextLine();
+        boolean existeEmail = UsuarioDAO.verificarEmailExistente(login);
+
+        if (existeEmail == true) {
+            System.out.println("Esse username/email ja está cadastrado! Tente novamente.");
+            cadastrar();
+        } else {
+            
+            usuario.setLogin(login);
+    
+            System.out.print("Senha: ");
+            usuario.setSenha(scanner.nextLine());
+    
+            UsuarioDAO.cadastrarUsuario(usuario);
+        }
+
     }
 
     public static void menuAdmin() {
