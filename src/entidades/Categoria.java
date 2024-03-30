@@ -83,7 +83,12 @@ public class Categoria extends Entidade {
 
     @Override
     public String toString() {
-        return nome;
+
+
+        return "Categoria"
+            +"\n" + " ID: " + id
+            +"\n" + " Nome: " + nome
+            +"\n" + " Tipo= " + tipo;     
     }
 }
 

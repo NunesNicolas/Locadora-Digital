@@ -8,6 +8,10 @@ public class Jogo extends Item {
         super(id, titulo, categoria);
     }
 
+    public Jogo(Categoria categoria){
+        super(categoria);
+    }
+
     public String getPlataforma() {
         return plataforma;
     }
