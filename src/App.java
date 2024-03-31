@@ -75,7 +75,7 @@ public class App {
         }
     }
 
-    public static void cadastrar() {
+    public static void cadastrar() throws IOException {
         Scanner scanner = new Scanner(System.in);
         Usuario usuario = new Usuario();
 
@@ -97,6 +97,7 @@ public class App {
             usuario.setSenha(scanner.nextLine());
     
             UsuarioDAO.cadastrarUsuario(usuario);
+            System.in.read();
         }
 
     }
