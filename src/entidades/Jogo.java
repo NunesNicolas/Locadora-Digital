@@ -6,6 +6,14 @@ public class Jogo extends Item {
     private int memoria;
 
     /*Getters */
+    public Jogo(int id, String titulo, String descricao, int numdias, double preco, String plataforma, int duracao, int memoria){
+        super(id, titulo, descricao, numdias, preco);
+        
+        this.plataforma = plataforma;
+        this.duracao = duracao;
+        this.memoria = memoria;
+    }
+    
     public Jogo(int id, String titulo, Categoria categoria) {
         super(id, titulo, categoria);
     }

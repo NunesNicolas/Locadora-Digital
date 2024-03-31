@@ -10,6 +10,14 @@ public class Item {
 
     private Categoria categoria;
 
+    public Item(int id, String titulo, String descricao, int numdias, double preco){
+        this.id = id;
+        this.titulo = titulo;
+        this.descricao = descricao;
+        this.numdias = numdias;
+        this.preco = preco;
+    }
+
     public Item(int id, String titulo, Categoria categoria) {
         this.categoria = categoria;
         this.id = id;

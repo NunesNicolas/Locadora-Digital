@@ -8,7 +8,6 @@ public class Listar {
         System.out.println("\n".repeat(50));
         System.out.println("==========/Jogos-mais-recentes/==========");
         System.out.println(JogoDAO.listar()+"\n");
-
     }
 
     public static void listarUser(){
