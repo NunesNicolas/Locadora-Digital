@@ -1,18 +1,23 @@
 import config.Conexao;
 import data.UsuarioDAO;
 import entidades.Usuario;
+import tela.Listar;
+
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
 
+
 public class App {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
+            System.out.println("\n".repeat(50));
             System.out.println("Bem-vindo ao sistema de locadora digital!");
             System.out.println("Escolha uma opção:");
             System.out.println("1 - Login");
@@ -38,7 +43,7 @@ public class App {
         }
     }
 
-    public static void login() {
+    public static void login() throws IOException {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("=== Login ===");
@@ -96,15 +101,16 @@ public class App {
 
     }
 
-    public static void menuAdmin() {
+    public static void menuAdmin() throws IOException {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
+            System.out.println("\n".repeat(50));
             System.out.println("=== Menu Administrador ===");
             System.out.println("Escolha uma opção:");
             System.out.println("5 - Criar jogo");
             System.out.println("2 - Buscar jogo");
-            System.out.println("6 - Listar jogos");
+            System.out.println("3 - Listar jogos");
             System.out.println("7 - Excluir jogo");
             System.out.println("8 - Atualizar jogo");
             System.out.println("9 - Listar clientes");
@@ -123,7 +129,8 @@ public class App {
                     // Implementação da listagem de categorias
                     break;
                 case 3:
-                    // Implementação da exclusão de categoria
+                    Listar.listarJogos();
+                    System.in.read();
                     break;
                 case 4:
                     // Implementação da atualização de categoria
@@ -141,7 +148,9 @@ public class App {
                     // Implementação da atualização de jogo
                     break;
                 case 9:
-                    // Implementação da listagem de clientes
+                    Listar.listarUser();
+                    System.in.read();      
+                        
                     break;
                 case 10:
                     // Implementação da exclusão de cliente
@@ -173,7 +182,7 @@ public class App {
 
             switch (opcao) {
                 case 1:
-                    // Implementação da listagem de todos os jogos
+                    Listar.listarJogos();                    
                     break;
                 case 2:
                     // Implementação da busca de jogos

@@ -30,4 +30,14 @@ public class Usuario {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+
+    @Override
+    public String toString() {
+
+
+        return "\n" + " Nome: " + nome
+            +"\n" + " Usuario/Email: " + login
+            +"\n";
+    }
+
 }

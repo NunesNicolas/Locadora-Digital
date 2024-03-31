@@ -2,11 +2,14 @@ package data;
 
 import config.Conexao;
 import entidades.Cliente;
+import entidades.Jogo;
 import entidades.Usuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 
 public class UsuarioDAO {
     
@@ -53,6 +56,34 @@ public class UsuarioDAO {
             return false;
         }
         return loginExistente;
+    }
+
+    public static ArrayList<Usuario> listar(){
+        ArrayList<Usuario> listarUser = new ArrayList<>();
+        try {
+            Connection conexao = Conexao.getConexao();
+            String sql = "SELECT * FROM usuario";
+            Statement st = conexao.createStatement();
+            ResultSet res = st.executeQuery(sql);
+
+            while (res.next()) {
+                // Categoria c = new Categoria();
+                // c.setNome(res.getString("categoria"));
+
+                Usuario u = new Usuario();// Associa a categoria ao jogo
+                u.setLogin(res.getString("login"));
+                u.setNome(res.getString("nome"));
+                listarUser.add(u);
+            }
+
+            res.close();
+            st.close();
+        } 
+        catch (Exception e) {
+            System.out.println(e);
+        }
+
+        return listarUser;
     }
 }
 
