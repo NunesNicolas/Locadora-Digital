@@ -2,6 +2,8 @@ import config.Conexao;
 import data.UsuarioDAO;
 import entidades.Usuario;
 import tela.Listar;
+import entidades.Jogo;
+import data.JogoDAO;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -47,8 +49,10 @@ public class App {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("=== Login ===");
+
         System.out.println("Digite seu login: ");
         String login = scanner.nextLine();
+
         System.out.println("Digite sua senha: ");
         String senha = scanner.nextLine();
 
@@ -137,7 +141,37 @@ public class App {
                     // Implementação da atualização de categoria
                     break;
                 case 5:
-                    // Implementação da criação de jogo
+                    System.out.println("INFORME OS DADOS DO JOGO\n\n");
+
+                    System.out.println("Digite o ID: ");
+                    int id = scanner.nextInt();
+
+                    System.out.println("Digite o TITULO: ");
+                    scanner.nextLine();
+                    String titulo = scanner.nextLine();
+
+                    System.out.println("Digite a DESCRIÇÃO: ");
+                    scanner.nextLine();
+                    String descricao = scanner.nextLine();
+
+                    System.out.println("Digite o NUMEDO DE DIAS que pode ser alugado: ");
+                    int numdias = scanner.nextInt();
+
+                    System.out.println("Digite o PREÇO: ");
+                    double preco = scanner.nextDouble();
+
+                    System.out.println("Digite a PLATAFORMA que pertence: ");
+                    scanner.nextLine();
+                    String plataforma = scanner.nextLine();
+
+                    System.out.println("Digite a DURAÇÃO: ");
+                    int duracao = scanner.nextInt();
+
+                    System.out.println("Digite quanto de MEMORIA: ");
+                    int memoria = scanner.nextInt();
+
+                    Jogo jogo = new Jogo(id, titulo, descricao, numdias, preco, plataforma, duracao, memoria);
+                    JogoDAO.criar(jogo);
                     break;
                 case 6:
                     // Implementação da listagem de jogos
