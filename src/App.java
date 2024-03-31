@@ -143,15 +143,14 @@ public class App {
                 case 5:
                     System.out.println("INFORME OS DADOS DO JOGO\n\n");
 
-                    System.out.println("Digite o ID: ");
-                    int id = scanner.nextInt();
+                    // System.out.println("Digite o ID: ");
+                    // int id = scanner.nextInt();
 
                     System.out.println("Digite o TITULO: ");
                     scanner.nextLine();
                     String titulo = scanner.nextLine();
 
                     System.out.println("Digite a DESCRIÇÃO: ");
-                    scanner.nextLine();
                     String descricao = scanner.nextLine();
 
                     System.out.println("Digite o NUMEDO DE DIAS que pode ser alugado: ");
@@ -164,13 +163,10 @@ public class App {
                     scanner.nextLine();
                     String plataforma = scanner.nextLine();
 
-                    System.out.println("Digite a DURAÇÃO: ");
-                    int duracao = scanner.nextInt();
-
                     System.out.println("Digite quanto de MEMORIA: ");
                     int memoria = scanner.nextInt();
 
-                    Jogo jogo = new Jogo(id, titulo, descricao, numdias, preco, plataforma, duracao, memoria);
+                    Jogo jogo = new Jogo(titulo, descricao, numdias, preco, plataforma, memoria);
                     JogoDAO.criar(jogo);
                     break;
                 case 6:

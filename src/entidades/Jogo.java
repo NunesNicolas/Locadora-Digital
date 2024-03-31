@@ -2,28 +2,21 @@ package entidades;
 
 public class Jogo extends Item {
     private String plataforma;
-    private int duracao;
     private int memoria;
 
-    /*Getters */
-    public Jogo(int id, String titulo, String descricao, int numdias, double preco, String plataforma, int duracao, int memoria){
-        super(id, titulo, descricao, numdias, preco);
-        
+
+    public Jogo(String titulo, String descricao, int numdias, double preco, String plataforma, int memoria){
+        super(titulo, descricao, numdias, preco);
         this.plataforma = plataforma;
-        this.duracao = duracao;
         this.memoria = memoria;
     }
     
-    public Jogo(int id, String titulo, Categoria categoria) {
-        super(id, titulo, categoria);
-    }
-
-    public Jogo(Categoria categoria){
-        super(categoria);
-    }
     public Jogo(){
         super();
     }
+
+    /*Getters */
+    
 
     public String getPlataforma() {
         return plataforma;
@@ -37,12 +30,7 @@ public class Jogo extends Item {
     public void setPlataforma(String plataforma) {
         this.plataforma = plataforma;
     }
-    public int getDuracao() {
-        return duracao;
-    }
-    public void setDuracao(int duracao) {
-        this.duracao = duracao;
-    }
+  
     public void setMemoria(int memoria) {
         this.memoria = memoria;
     }
@@ -54,12 +42,11 @@ public class Jogo extends Item {
         return "Categoria"
             +"\n" + " ID: " + id
             +"\n" + " Titulo: " + titulo
-            +"\n" + " Preco= " + preco
+            +"\n" + " Preco= R$" + preco
                 +"\n" + " Descricao: " + descricao
                 +"\n" + " NumeroDias: " + numdias
                 +"\n" + " Plataforma: " + plataforma
-                +"\n" + " Espaço de memoria: " + memoria + " GB"
-                +"\n" + " Duracao: " + duracao;     
+                +"\n" + " Espaço de memoria: " + memoria + " GB"; 
         }
 
 }

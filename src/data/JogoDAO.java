@@ -12,8 +12,8 @@ public class JogoDAO {
     public static boolean criar(Jogo jogo){
         try {
             Connection conexao = Conexao.getConexao();
-            String sql = "INSERT INTO jogo(id, titulo, preco, descricao, numeroDias, plataforma, duracao, memoria)"
-                +"VALUES (?,?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO jogo(id, titulo, preco, descricao, numeroDias, plataforma, memoria)"
+                +"VALUES (?,?,?,?,?,?,?)";
                 
             PreparedStatement ps = conexao.prepareStatement(sql);
             ps.setInt(1, jogo.getId());
@@ -22,8 +22,7 @@ public class JogoDAO {
             ps.setString(4, jogo.getDescricao());
             ps.setInt(5, jogo.getNumdias());
             ps.setString(6, jogo.getPlataforma());
-            ps.setInt(7, jogo.getDuracao());
-            ps.setInt(8, jogo.getMemoria());
+            ps.setInt(7, jogo.getMemoria());
             int resultado = ps.executeUpdate();
             ps.close();
 
@@ -40,7 +39,7 @@ public class JogoDAO {
 
         try {
             Connection conexao = Conexao.getConexao();
-            String sql = "UPDATE jogo SET titulo = ?, preco = ?, descricao = ?, numeroDias = ?, plataforma = ?, duracao = ?, memoria = ? WHERE id = ?";  
+            String sql = "UPDATE jogo SET titulo = ?, preco = ?, descricao = ?, numeroDias = ?, plataforma = ?, memoria = ? WHERE id = ?";  
 
             PreparedStatement ps = conexao.prepareStatement(sql);
             ps.setString(1, jogo.getTitulo());
@@ -48,11 +47,10 @@ public class JogoDAO {
             ps.setString(3, jogo.getDescricao());
             ps.setInt(4, jogo.getNumdias());
             ps.setString(5, jogo.getPlataforma());
-            ps.setInt(6, jogo.getDuracao());
-            ps.setInt(7, jogo.getMemoria());
-            ps.setInt(8, jogo.getId());
+            ps.setInt(6, jogo.getMemoria());
+            ps.setInt(7, jogo.getId());
             int resultado = ps.executeUpdate();
-            System.out.println("receba");
+            //System.out.println("receba");
             ps.close();
 
             return resultado > 0;
@@ -102,7 +100,6 @@ public class JogoDAO {
                 j.setNumdias(res.getInt("numeroDias"));
                 j.setPlataforma(res.getString("plataforma"));
                 j.setMemoria(res.getInt("memoria"));
-                j.setDuracao(res.getInt("duracao"));
                 listaJogos.add(j);
             }
 
