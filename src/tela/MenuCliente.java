@@ -16,7 +16,7 @@ public static void menuCliente(int id) {
             System.out.println("2 - Buscar jogos");
             System.out.println("3 - Listar jogos disponíveis");
             System.out.println("4 - Listar jogos alugados");
-            System.out.println("5 - Alugar jogos");
+            System.out.println("5 - Carrinho");
             System.out.println("0 - Sair");
 
             int opcao = scanner.nextInt();
@@ -37,7 +37,7 @@ public static void menuCliente(int id) {
                 }
                     break;
                 case 3:
-                    ItemLocaDAO.ListarDis();
+                    Listar.listarJogosDis();
                     break;
                 case 4:
                     // Implementação da listagem de jogos alugados pelo cliente

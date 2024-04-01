@@ -36,9 +36,6 @@ public static void menuAdmin() throws IOException {
                 case 1:
                     System.out.println("INFORME OS DADOS DO JOGO\n\n");
 
-                    // System.out.println("Digite o ID: ");
-                    // int id = scanner.nextInt();
-
                     System.out.println("Digite o TITULO: ");
                     scanner.nextLine();
                     String titulo = scanner.nextLine();
