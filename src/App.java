@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Scanner;
 
 
@@ -177,7 +178,63 @@ public class App {
                     break;
                 case 8:
                     // Implementação da atualização de jogo
-                    break;
+                    System.out.println("Digite o nome do jogo que deseja atualizar: ");
+                    String nomeJogo = scanner.nextLine();
+
+                    try{
+                        Connection conexao = Conexao.getConexao();
+                        String sql = "SELECT * FROM jogo";
+                        Statement st = conexao.createStatement();
+                        ResultSet res = st.executeQuery(sql);
+
+                        while (res.next()) {
+                            if (nomeJogo == res.getString("titulo")) {
+                                Jogo j = new Jogo();// Associa a categoria ao jogo
+
+                                j.setId(res.getInt("id"));
+
+                                System.out.println("Digite o TITULO: ");
+                                scanner.nextLine();
+                                String titulo2 = scanner.nextLine();
+                                j.setTitulo(titulo2);
+
+                                System.out.println("Digite o PREÇO: ");
+                                double preco2 = scanner.nextDouble();
+                                j.setPreco(preco2);
+
+                                System.out.println("Digite a DESCRIÇÃO: ");
+                                String descricao2 = scanner.nextLine();
+                                j.setDescricao(descricao2);
+
+                                System.out.println("Digite o NUMEDO DE DIAS que pode ser alugado: ");
+                                int numdias2 = scanner.nextInt();
+                                j.setNumdias(numdias2);
+                                
+                                System.out.println("Digite a PLATAFORMA que pertence: ");
+                                scanner.nextLine();
+                                String plataforma2 = scanner.nextLine();
+                                j.setPlataforma(plataforma2);
+
+                                System.out.println("Digite quanto de MEMORIA: ");
+                                int memoria2 = scanner.nextInt();
+                                j.setMemoria(memoria2);
+
+                                JogoDAO.atualizar(j);
+
+                                res.close();
+                                st.close();
+                            }
+                            else{
+                                System.out.println("Não existe jogo com esse nome");
+                            }
+
+                        }
+                    }
+                    catch (Exception e) {
+                        System.out.println(e);
+                    }
+            
+                  break;
                 case 9:
                     Listar.listarUser();
                     System.in.read();      
