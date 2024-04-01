@@ -109,6 +109,7 @@ public class JogoDAO {
                 j.setMemoria(res.getInt("memoria"));
                 res.close();
                 comando.close();
+                System.out.println(j);
                 
             } else {
                 System.out.println("\nJogo não encontrado\n");
@@ -138,9 +139,9 @@ public class JogoDAO {
                 Jogo j = new Jogo();
                 j.setId(res.getInt("id"));
                 j.setTitulo(res.getString("titulo"));
-                // j.setPreco(res.getDouble("preco"));
-                // j.setDescricao(res.getString("descricao"));
-                // j.setNumdias(res.getInt("numeroDias"));
+                j.setPreco(res.getDouble("preco"));
+                j.setDescricao(res.getString("descricao"));
+                j.setNumdias(res.getInt("numeroDias"));
                 j.setPlataforma(res.getString("plataforma"));
                 // j.setMemoria(res.getInt("memoria"));
                 listaJogos.add(j);
@@ -156,33 +157,39 @@ public class JogoDAO {
         return listaJogos;
     }
 
-    // public int buscarID(String titulo) {
-    //     int resultado;
-    //     try {   
-    //         Connection conexao = Conexao.getConexao();
-    //         String sql = "SELECT * FROM jogo WHERE titulo = ?";
-    //         PreparedStatement comando = conexao.prepareStatement(sql);
-    //         comando.setString(1, titulo);
-    //         ResultSet res = comando.executeQuery();
+    public static Jogo buscarJogoPeloID(int id) {
+        Jogo j = new Jogo();
+        try {
+            Connection conexao = Conexao.getConexao();
+            String sql = "SELECT * FROM jogo WHERE id = ?";
+            PreparedStatement comando = conexao.prepareStatement(sql);
+            comando.setInt(1, id);
+            ResultSet res = comando.executeQuery();
+            if (res.next()) {
+               
+                j.setId(res.getInt("id"));
+                j.setTitulo(res.getString("titulo"));
+                j.setPreco(res.getDouble("preco"));
+                j.setDescricao(res.getString("descricao"));
+                j.setNumdias(res.getInt("numeroDias"));
+                j.setPlataforma(res.getString("plataforma"));
+                j.setMemoria(res.getInt("memoria"));
+                res.close();
+                comando.close();
+                // System.out.println(j+ "\n");
+                
+            } else {
+                System.out.println("\nJogo não encontrado\n");
+            }
+            
+            return j;
 
-    //         if (res.next()) {
-    //             Jogo j = new Jogo();
-    //             j.setId(res.getInt("id"));
-    //             resultado = j.getId();
-    //             res.close();
-    //             comando.close();
-    //         } else {
-    //             System.out.println("\nJogo não encontrado\n");
-    //         }
-
-    //     } 
-    //     catch (SQLException erro) {
-    //         System.out.println(erro.getMessage());
-    //     }
-
-    //     return resultado;
-        
-    // }
+        } 
+        catch (SQLException erro) {
+            System.out.println(erro.getMessage());
+            return j;
+        }
+    }
 
     public static boolean criarItem(String titulo) {
         try {

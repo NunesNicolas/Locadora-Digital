@@ -2,6 +2,7 @@ package tela;
 
 import java.util.Scanner;
 
+import data.ItemLocaDAO;
 import data.JogoDAO;
 
 public class MenuCliente {
@@ -36,7 +37,7 @@ public static void menuCliente(int id) {
                 }
                     break;
                 case 3:
-                    // Implementação da listagem de jogos disponíveis
+                    ItemLocaDAO.ListarDis();
                     break;
                 case 4:
                     // Implementação da listagem de jogos alugados pelo cliente

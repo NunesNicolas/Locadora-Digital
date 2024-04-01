@@ -32,7 +32,7 @@ public class ItemLocacao {
     public void setJogo(Jogo jogo) {
         this.jogo = jogo;
     }
-    public void setLocacao(Locacao locacao) {
-        this.locacao = locacao;
+    public void setLocacao(Locacao lo) {
+        this.locacao = lo;
     }
 }

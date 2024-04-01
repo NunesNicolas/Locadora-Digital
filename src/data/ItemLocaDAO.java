@@ -2,6 +2,9 @@ package data;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
 
 import config.Conexao;
 import entidades.ItemLocacao;
@@ -34,4 +37,36 @@ public class ItemLocaDAO {
             return false;
         }
     }
+
+
+    public static void ListarDis(){
+        try {
+            Connection conexao = Conexao.getConexao();
+            String sql = "SELECT * FROM itemlocacao";
+            Statement st = conexao.createStatement();
+            ResultSet res = st.executeQuery(sql);
+            
+            while (res.next()) {
+                ItemLocacao il = new ItemLocacao();
+                il.setId(res.getInt("id"));
+                il.setValor(res.getDouble("valor"));
+                Jogo j = new Jogo();
+                    il.setJogo(j);
+                    il.getJogo().setId(res.getInt("jogo_id"));
+                Locacao lo = new Locacao();
+                    il.setLocacao(lo);
+                    il.getLocacao().setId(res.getInt("locacao_id"));
+                if (il.getLocacao().getId()== 0) {
+                System.out.println(JogoDAO.buscarJogoPeloID(il.getJogo().getId()));
+                }
+            }
+            res.close();
+            st.close();
+        } 
+        catch (Exception e) {
+            System.out.println("Não foi possível apresentar os jogos disponíveis");
+            System.out.println(e);
+        }
+    }
 }
+        
