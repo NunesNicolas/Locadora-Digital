@@ -4,7 +4,6 @@ import java.util.Scanner;
 import data.ItemLocaDAO;
 import data.JogoDAO;
 import data.UsuarioDAO;
-import entidades.Jogo;
 
 public class Listar {
 

@@ -3,7 +3,6 @@ package data;
 import config.Conexao;
 import entidades.ItemLocacao;
 import entidades.Jogo;
-import entidades.Locacao;
 
 import java.util.ArrayList;
 import java.sql.PreparedStatement;
