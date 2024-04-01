@@ -8,8 +8,6 @@ public class Item {
     int numdias;
     double preco;
 
-    private Categoria categoria;
-
     public Item( String titulo, String descricao, int numdias, double preco){
         this.titulo = titulo;
         this.descricao = descricao;
@@ -25,15 +23,6 @@ public class Item {
         this.preco = preco;
     }
 
-    public Item(int id, String titulo, Categoria categoria) {
-        this.categoria = categoria;
-        this.id = id;
-        this.titulo = titulo;
-    }
-
-    public Item(Categoria categoria){
-        this.categoria = categoria;
-    }
 
     public Item(){}
 
@@ -68,11 +57,6 @@ public class Item {
     public void setNumdias(int numdias) {
         this.numdias = numdias;
     }
-    public Categoria getCategoria() {
-        return categoria;
-    }
-    public void setCategoria(Categoria categoria) {
-        this.categoria = categoria;
-    }
+
     
 }

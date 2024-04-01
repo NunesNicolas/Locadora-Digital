@@ -1,5 +1,6 @@
 import config.Conexao;
 import data.UsuarioDAO;
+import entidades.Locacao;
 import entidades.Usuario;
 import tela.MenuAdmin;
 import tela.MenuCliente;
@@ -66,7 +67,9 @@ public class App {
                     if (tipoUsuario == 1) {
                         MenuAdmin.menuAdmin();
                     } else {
-                        MenuCliente.menuCliente(rs.getInt("id"));
+                        Locacao carrinho = new Locacao();
+                        
+                        MenuCliente.menuCliente(rs.getInt("id"), carrinho);
                     }
 
                 } else {

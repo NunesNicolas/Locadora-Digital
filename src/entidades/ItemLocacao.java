@@ -35,4 +35,12 @@ public class ItemLocacao {
     public void setLocacao(Locacao lo) {
         this.locacao = lo;
     }
+
+    @Override
+    public String toString() {
+        return "Jogo"
+            +"\n" + " ID: " + id
+            +"\n" + " Valor: R$" + valor
+            +"\n" + "Data" + jogo.getTitulo();
+        }
 }

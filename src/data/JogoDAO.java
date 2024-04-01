@@ -3,6 +3,7 @@ package data;
 import config.Conexao;
 import entidades.ItemLocacao;
 import entidades.Jogo;
+import entidades.Locacao;
 
 import java.util.ArrayList;
 import java.sql.PreparedStatement;
@@ -89,7 +90,8 @@ public class JogoDAO {
         }
     }
 
-    public static boolean buscarJogoPeloTitulo(String titulo) {
+    public static Jogo buscarJogoPeloTitulo(String titulo) {
+        Jogo j = new Jogo();
         try {
             Connection conexao = Conexao.getConexao();
             String sql = "SELECT * FROM jogo WHERE titulo = ?";
@@ -98,7 +100,7 @@ public class JogoDAO {
             ResultSet res = comando.executeQuery();
 
             if (res.next()) {
-                Jogo j = new Jogo();
+               
                 j.setId(res.getInt("id"));
                 j.setTitulo(res.getString("titulo"));
                 j.setPreco(res.getDouble("preco"));
@@ -108,19 +110,19 @@ public class JogoDAO {
                 j.setMemoria(res.getInt("memoria"));
                 res.close();
                 comando.close();
-                System.out.println(j);
+                // System.out.println(j);
                 
             } else {
                 System.out.println("\nJogo não encontrado\n");
             }
             
-            return true;
 
         } 
         catch (SQLException erro) {
             System.out.println(erro.getMessage());
-            return false;
+        
         }
+        return j;
     }
 
     public static ArrayList<Jogo> listarGeral(){

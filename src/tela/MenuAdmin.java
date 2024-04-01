@@ -10,9 +10,11 @@ import config.Conexao;
 import data.JogoDAO;
 import data.UsuarioDAO;
 import entidades.Jogo;
+import entidades.Locacao;
 
 public class MenuAdmin {
 public static void menuAdmin() throws IOException {
+    Locacao carrinho = new Locacao();
         try (Scanner scanner = new Scanner(System.in)) {
             while (true) {
                 System.out.println("\n".repeat(50));
@@ -71,8 +73,8 @@ public static void menuAdmin() throws IOException {
                         
                         break;
                     case 3:
-                        Listar.listarJogos();
-                        Listar.options(opcao);
+                        Listar.listarJogos(1, carrinho);
+                        Listar.options(opcao, 1, carrinho);
 
                         break;
                     case 4:

@@ -67,5 +67,40 @@ public class ItemLocaDAO {
             System.out.println(e);
         }
     }
+
+    public static ItemLocacao buscloc(int jogo_id){
+        ItemLocacao item = new ItemLocacao();
+        try {
+            Connection conexao = Conexao.getConexao();
+            String sql = "SELECT * FROM itemlocacao WHERE Jogo_id = ?";
+            PreparedStatement comando = conexao.prepareStatement(sql);
+            comando.setInt(1, jogo_id);
+            ResultSet res = comando.executeQuery();
+
+            while (res.next()) {
+                ItemLocacao il = new ItemLocacao();
+                il.setId(res.getInt("id"));
+                il.setValor(res.getDouble("valor"));
+                Jogo j = new Jogo();
+                    il.setJogo(j);
+                    il.getJogo().setId(res.getInt("jogo_id"));
+                Locacao lo = new Locacao();
+                    il.setLocacao(lo);
+                    il.getLocacao().setId(res.getInt("locacao_id"));
+                if (il.getLocacao().getId()== 0) {
+                // System.out.println(JogoDAO.buscarJogoPeloID(il.getJogo().getId()));
+                item = il;
+                }
+            }
+            res.close();
+            comando.close();
+        } 
+        catch (Exception e) {
+            System.out.println("Jogo indisponível");
+            System.out.println(e);
+        }
+        return item;
+    }
+    
 }
         
