@@ -37,9 +37,7 @@ public class Jogo extends Item {
 
     @Override
     public String toString() {
-
-
-        return "Categoria"
+        return "Jogo"
             +"\n" + " ID: " + id
             +"\n" + " Titulo: " + titulo
             +"\n" + " Preco= R$" + preco
