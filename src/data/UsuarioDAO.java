@@ -1,8 +1,6 @@
 package data;
 
 import config.Conexao;
-import entidades.Cliente;
-import entidades.Jogo;
 import entidades.Usuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
