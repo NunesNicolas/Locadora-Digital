@@ -9,6 +9,7 @@ public class Locacao {
     private ArrayList<ItemLocacao> itensLocacao;
     private Cliente cliente;
     private Usuario usuario;
+    public Object getJogo;
 
     public int getId() {
         return id;
