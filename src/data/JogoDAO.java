@@ -62,13 +62,13 @@ public class JogoDAO {
         }
     }
 
-    public static boolean excluir(int id){
+    public static boolean excluir(String titulo){
         try {
             Connection conexao = Conexao.getConexao();
-            String sql = "DELETE FROM jogo WHERE id=?";
+            String sql = "DELETE FROM jogo WHERE titulo=?";
 
             PreparedStatement ps = conexao.prepareStatement(sql);
-            ps.setInt(1, id);
+            ps.setString(1, titulo);
             int resultado = ps.executeUpdate();
             ps.close();
 

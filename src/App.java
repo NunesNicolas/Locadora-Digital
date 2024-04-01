@@ -20,7 +20,7 @@ public class App {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
-            //System.out.println("\n".repeat(50));
+            System.out.println("\n".repeat(50));
             System.out.println("Bem-vindo ao sistema de locadora digital!");
             System.out.println("Escolha uma opção:");
             System.out.println("1 - Login");
@@ -109,7 +109,7 @@ public class App {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
-            //System.out.println("\n".repeat(50));
+            System.out.println("\n".repeat(50));
             System.out.println("=== Menu Administrador ===");
             System.out.println("Escolha uma opção:");
             System.out.println("1 - Criar jogo");
@@ -117,11 +117,11 @@ public class App {
             System.out.println("3 - Listar jogos");
             System.out.println("4 - Excluir jogo");
             System.out.println("5 - Atualizar jogo");
-            System.out.println("6 - Listar clientes");
-            System.out.println("7 - Excluir cliente");
+            System.out.println("6 - Listar usuario");
+            System.out.println("7 - Excluir usuario");
             System.out.println("0 - Sair");
-            //System.out.println("3 - Buscar cliente");
-            //System.out.println("8 - Atualizar cliente");
+            //System.out.println("3 - Buscar usuario");
+            //System.out.println("8 - Atualizar usuario");
 
             int opcao = scanner.nextInt();
 
@@ -170,9 +170,19 @@ public class App {
                 case 3:
                     Listar.listarJogos();
                     System.in.read();
+
                     break;
                 case 4:
-                    // Implementação 
+                    System.out.println("Digite o nome do jogo que deseja excluir: ");
+                    scanner.nextLine();
+                    String tituloJogo = scanner.nextLine();
+                    boolean jogoExcluido = JogoDAO.excluir(tituloJogo);
+
+                    if (jogoExcluido == true) {
+                        System.out.println("Jogo excluido com sucesso.");
+                    } else {
+                        System.out.println("Jogo inexistente! Tente novamente");
+                    }
                     break;
                 case 5:
                     System.out.println("Digite o nome do jogo que deseja atualizar: ");
@@ -233,10 +243,19 @@ public class App {
         
                     break;
                 case 6:
-                    // Implementação da listagem de jogos
+                    // Implementação
                     break;
                 case 7:
-                    // Implementação da exclusão de jogo
+                    System.out.println("Digite o login do usuario que você deseja excluir: ");
+                    scanner.nextLine();
+                    String loginUsuario = scanner.nextLine();
+                    boolean usuarioExcluido = UsuarioDAO.excluir(loginUsuario);
+
+                    if (usuarioExcluido == true) {
+                        System.out.println("\nUsuário excluido com sucesso.\n");
+                    } else {
+                        System.out.println("\nUsuário inexistente! Tente novamente.\n");
+                    }
                     break;
                 case 8:
                    
@@ -247,7 +266,7 @@ public class App {
                         
                     break;
                 case 10:
-                    // Implementação da exclusão de cliente
+                    // Implementação 
                     break;
                 case 0:
                     System.out.println("Saindo...");

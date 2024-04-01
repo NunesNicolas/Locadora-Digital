@@ -58,6 +58,24 @@ public class UsuarioDAO {
         return loginExistente;
     }
 
+    public static boolean excluir(String login){
+        try {
+            Connection conexao = Conexao.getConexao();
+            String sql = "DELETE FROM usuario WHERE login=?";
+
+            PreparedStatement comando = conexao.prepareStatement(sql);
+            comando.setString(1, login);
+            int resultado = comando.executeUpdate();
+            comando.close();
+
+            return resultado > 0;
+        }
+        catch (Exception e) {
+            System.out.println(e);
+            return false;
+        }
+    }
+
     public static ArrayList<Usuario> listar(){
         ArrayList<Usuario> listarUser = new ArrayList<>();
         try {
