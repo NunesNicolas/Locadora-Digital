@@ -5,6 +5,7 @@ import entidades.Jogo;
 import java.util.ArrayList;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Connection;
 import java.sql.Statement;
 
@@ -61,14 +62,13 @@ public class JogoDAO {
         }
     }
 
-    public static boolean excluir(int id){
+    public static boolean excluir(String titulo){
         try {
             Connection conexao = Conexao.getConexao();
-            String sql = "DELETE FROM jogo WHERE id=?";
-
+            String sql = "DELETE FROM jogo WHERE titulo=?";
 
             PreparedStatement ps = conexao.prepareStatement(sql);
-            ps.setInt(1, id);
+            ps.setString(1, titulo);
             int resultado = ps.executeUpdate();
             ps.close();
 
@@ -76,6 +76,40 @@ public class JogoDAO {
         }
         catch (Exception e) {
             System.out.println(e);
+            return false;
+        }
+    }
+
+    public static boolean buscarJogoPeloTitulo(String titulo) {
+        try {
+            Connection conexao = Conexao.getConexao();
+            String sql = "SELECT * FROM jogo WHERE titulo = ?";
+            PreparedStatement comando = conexao.prepareStatement(sql);
+            comando.setString(1, titulo);
+            ResultSet res = comando.executeQuery();
+
+            if (res.next()) {
+                Jogo j = new Jogo();
+                j.setId(res.getInt("id"));
+                j.setTitulo(res.getString("titulo"));
+                j.setPreco(res.getDouble("preco"));
+                j.setDescricao(res.getString("descricao"));
+                j.setNumdias(res.getInt("numeroDias"));
+                j.setPlataforma(res.getString("plataforma"));
+                j.setMemoria(res.getInt("memoria"));
+                res.close();
+                comando.close();
+
+                System.out.println(j);
+            } else {
+                System.out.println("\nJogo não encontrado\n");
+            }
+            
+            return true;
+
+        } 
+        catch (SQLException erro) {
+            System.out.println(erro.getMessage());
             return false;
         }
     }
@@ -92,7 +126,7 @@ public class JogoDAO {
                 // Categoria c = new Categoria();
                 // c.setNome(res.getString("categoria"));
 
-                Jogo j = new Jogo();// Associa a categoria ao jogo
+                Jogo j = new Jogo();
                 j.setId(res.getInt("id"));
                 j.setTitulo(res.getString("titulo"));
                 j.setPreco(res.getDouble("preco"));
