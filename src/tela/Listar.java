@@ -7,6 +7,7 @@ import data.UsuarioDAO;
 import entidades.ItemLocacao;
 import entidades.Jogo;
 import entidades.Locacao;
+import data.LocacaoDAO;
 
 public class Listar {
 
@@ -60,15 +61,29 @@ static Scanner scanner = new Scanner(System.in);
                 System.out.println(erro.getMessage());
             }
             break;
-    }
+        }
     }
 
-    public static void mostrarCarrinho(Locacao carrinho){
+    public static void mostrarCarrinho(Locacao carrinho, int id){
+        Scanner scanner = new Scanner(System.in);
+
         System.out.println("=====Seu_Carrinho=====");
         for(ItemLocacao item : carrinho.getItensLocacao()){
             System.out.println(JogoDAO.buscarJogoPeloID(item.getJogo().getId()));
         }
         System.out.println("/n"+"=====VALOR TOTAL:"+carrinho.getValor()+"=====");
+
+        //LocacaoDAO.criar(carrinho, 0);
+
+        System.out.println("Deseja finalizar a compra?\n1)Sim\n2)Não");
+        int op = scanner.nextInt();
+
+        if (op == 1) {
+            LocacaoDAO.criar(carrinho, id);
+        }
+        else{
+            System.out.println("Continue comprando!");
+        }
     }
 }
 

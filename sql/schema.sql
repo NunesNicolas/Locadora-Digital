@@ -19,7 +19,6 @@ CREATE TABLE `locacao` (
   `id` int(11) NOT NULL,
   `data` date DEFAULT NULL,
   `valor` decimal(10,2) DEFAULT NULL,
-  `Cliente_id` int(11) NOT NULL,
   `usuario_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 

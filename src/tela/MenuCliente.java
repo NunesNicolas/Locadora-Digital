@@ -43,7 +43,7 @@ public static void menuCliente(int id, Locacao carrinho) {
                         Listar.listarJogosDis(id, carrinho);
                         break;
                     case 4:
-                    Listar.mostrarCarrinho(carrinho);
+                        Listar.mostrarCarrinho(carrinho,id);
                         break;
                     case 5:
                         // Implementação do aluguel de jogos

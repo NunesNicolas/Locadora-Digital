@@ -6,8 +6,8 @@ import java.sql.SQLException;
 
 public class Conexao {
     private static final String LINK = "jdbc:mysql://localhost/locadora_digital";
-    private static final String USUARIO = "root";
-    private static final String SENHA = "";
+    private static final String USUARIO = "fellype";
+    private static final String SENHA = "2008";
    
     public static Connection getConexao() {
         try {
