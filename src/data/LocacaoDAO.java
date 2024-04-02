@@ -1,10 +1,12 @@
 package data;
-
+import java.util.Date;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 
 import config.Conexao;
 import entidades.Locacao;
@@ -12,13 +14,18 @@ import entidades.Locacao;
 public class LocacaoDAO {
 
     public static boolean criar(Locacao locacao, int id){
+        Calendar c = Calendar.getInstance();
+        java.sql.Date dt = new java.sql.Date(c.getTime().getTime()); 
+        
+        SimpleDateFormat data = new SimpleDateFormat("dd/MM/yyyy");
+
         try {
             Connection conexao = Conexao.getConexao();
             String sql = "INSERT INTO locacao(id, data, valor, usuario_id)"
                 +"VALUES (?,?,?,?)";
             PreparedStatement ps = conexao.prepareStatement(sql);
             ps.setInt(1, locacao.getId());
-            ps.setDate(2, (Date) locacao.getData());
+            ps.setDate(2, dt);
             ps.setDouble(3, locacao.getValor());
             ps.setInt(4, id);
             int resultado = ps.executeUpdate();
