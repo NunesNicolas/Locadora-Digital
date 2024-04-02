@@ -5,12 +5,10 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.time.LocalDateTime;
-import java.time.LocalDate;
-import java.util.Calendar;
 
 import config.Conexao;
 import entidades.ItemLocacao;
+import entidades.Jogo;
 import entidades.Locacao;
 
 public class LocacaoDAO {
@@ -62,6 +60,27 @@ public class LocacaoDAO {
             System.out.println(e);
         }
         return j;
+    }
+    
+    public static void meusJogos(int id) {
+        try {
+            Connection conexao = Conexao.getConexao();
+            String sql = "SELECT * FROM locacao";
+            Statement st = conexao.createStatement();
+            ResultSet res = st.executeQuery(sql);
+        
+            while (res.next()) {
+                if (id == res.getInt("usuario_id")) {
+                    ItemLocaDAO.meusJogos(res.getInt("id"));
+                }
+            }
+    
+            res.close();
+            st.close();
+        } catch (Exception e) {
+            System.out.println("Não foi possível apresentar os jogos disponíveis");
+            System.out.println(e);
+        }
     }
     
 }

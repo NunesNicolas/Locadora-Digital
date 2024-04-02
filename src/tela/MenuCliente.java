@@ -1,31 +1,32 @@
 package tela;
 
-import java.util.ArrayList;
 import java.util.Scanner;
+
+import data.ItemLocaDAO;
 import data.JogoDAO;
+import data.LocacaoDAO;
 import entidades.ItemLocacao;
 import entidades.Jogo;
 import entidades.Locacao;
 
 public class MenuCliente {
 public static void menuCliente(int id, Locacao carrinho) throws Exception {
-    ItemLocacao item;
         try (Scanner scanner = new Scanner(System.in)) {
             while (true) {
                 System.out.println("=== Menu Cliente ===");
                 System.out.println("Escolha uma opção:");
-                System.out.println("1 - Listar todos os jogos");
-                System.out.println("2 - Buscar jogos");
-                System.out.println("3 - Listar jogos disponíveis");
-                System.out.println("4 - Visualizar Carrinho");
-                System.out.println("5 - Carrinho");
+                System.out.println("1 - Listar jogos");
+                System.out.println("2 - Buscar jogo");
+                System.out.println("3 - Carrinho");
+                System.out.println("4 - Meus jogos");
                 System.out.println("0 - Sair");
 
                 int opcao = scanner.nextInt();
 
                 switch (opcao) {
                     case 1:
-                        Listar.listarJogos(id, carrinho);                  
+                        Listar.listarJogosDis(id, carrinho);
+                        System.in.read();                  
                         break;
                     case 2:
                     try {        
@@ -34,19 +35,22 @@ public static void menuCliente(int id, Locacao carrinho) throws Exception {
                         String tituloJogo = scanner.nextLine();
                         Jogo j = JogoDAO.buscarJogoPeloTitulo(tituloJogo.toLowerCase());
                         System.out.println(j);
-                        Alugar.adicionaraoCarrinho(id, carrinho, j);
+
+                        ItemLocacao item = ItemLocaDAO.buscloc(j.getId());
+                            if(item.getId() != 0){
+                                Alugar.adicionaraoCarrinho(id, carrinho, j);
+                            }else {
+                                System.out.println("este jogo está alugado");
+                            }
                     } catch (Exception erro) {
                         System.out.println(erro.getMessage());
                     }
                         break;
                     case 3:
-                        Listar.listarJogosDis(id, carrinho);
-                        break;
-                    case 4:
                         Listar.mostrarCarrinho(carrinho,id);
                         break;
-                    case 5:
-                        // Implementação do aluguel de jogos
+                    case 4:
+                        LocacaoDAO.meusJogos(id);
                         break;
                     case 0:
                         System.out.println("Saindo...");

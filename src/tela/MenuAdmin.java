@@ -1,12 +1,8 @@
 package tela;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.Scanner;
 
-import config.Conexao;
 import data.JogoDAO;
 import data.UsuarioDAO;
 import entidades.Jogo;
@@ -135,8 +131,10 @@ public static void menuAdmin() throws IOException {
 
                         if (usuarioExcluido == true) {
                             System.out.println("\nUsuário excluido com sucesso.\n");
+                            System.in.read();
                         } else {
                             System.out.println("\nUsuário inexistente! Tente novamente.\n");
+                            System.in.read();
                         }
                         break;
                     case 8:

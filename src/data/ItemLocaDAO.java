@@ -123,6 +123,35 @@ public class ItemLocaDAO {
         }
         return item;
     }
-    
+
+    public static void meusJogos(int locaid){
+    try {
+        Connection conn = Conexao.getConexao();
+        String sql = "SELECT * FROM itemlocacao";
+        Statement st = conn.createStatement();
+        ResultSet res = st.executeQuery(sql);
+        
+        while (res.next()) {
+            ItemLocacao il = new ItemLocacao();
+            il.setId(res.getInt("id"));
+            il.setValor(res.getDouble("valor"));
+            Jogo j = new Jogo();
+                il.setJogo(j);
+                il.getJogo().setId(res.getInt("jogo_id"));
+            Locacao lo = new Locacao();
+                il.setLocacao(lo);
+                il.getLocacao().setId(res.getInt("locacao_id"));
+            if (il.getLocacao().getId()== locaid) {
+            System.out.println(JogoDAO.buscarJogoPeloID(il.getJogo().getId()));
+            }
+        }
+        res.close();
+        st.close();
+    } 
+    catch (Exception e) {
+        System.out.println("Não foi possível apresentar os seus jogos");
+        System.out.println(e);
+    }
+}
 }
         
