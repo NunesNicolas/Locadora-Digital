@@ -37,6 +37,24 @@ public class ItemLocaDAO {
         }
     }
 
+    //Metodo para atualizar um registro na tabela no BD
+    public static void atualizar(ItemLocacao itemlocacao) throws Exception{
+         Connection conn = Conexao.getConexao();
+         String sql = "UPDATE itemlocacao SET Valor= ? WHERE Id=? AND Jogo_id=? AND Locacao_id=?";
+         PreparedStatement stmt = conn.prepareStatement(sql);
+         
+         stmt.setDouble(1,itemlocacao.getValor());
+         stmt.setInt(2,itemlocacao.getId());
+         stmt.setInt(3,itemlocacao.getJogo().getId());
+         stmt.setInt(4,itemlocacao.getLocacao().getId());
+         
+         int linhasAfetadas = stmt.executeUpdate();
+         
+         if (linhasAfetadas==0){
+             throw new Exception("Não foi possível localizar o Item de Locação com os dados fornecidos!");
+         }    
+     }
+
 
     public static void ListarDis(){
         try {

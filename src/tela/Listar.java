@@ -80,6 +80,9 @@ static Scanner scanner = new Scanner(System.in);
 
         if (op == 1) {
             LocacaoDAO.criar(carrinho, id);
+            for(ItemLocacao item : carrinho.getItensLocacao()){
+                
+            }
         }
         else{
             System.out.println("Continue comprando!");

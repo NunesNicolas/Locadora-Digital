@@ -14,7 +14,7 @@ public class LocacaoDAO {
         try {
             Connection conexao = Conexao.getConexao();
             String sql = "INSERT INTO locacao(id, data, valor, usuario_id)"
-                +"VALUES (?,?,?,?,?)";
+                +"VALUES (?,?,?,?)";
                 
             PreparedStatement ps = conexao.prepareStatement(sql);
             ps.setInt(1, locacao.getId());
