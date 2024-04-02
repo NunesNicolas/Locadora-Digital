@@ -7,8 +7,6 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 import config.Conexao;
-import entidades.ItemLocacao;
-import entidades.Jogo;
 import entidades.Locacao;
 
 public class LocacaoDAO {
