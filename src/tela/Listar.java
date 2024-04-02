@@ -64,7 +64,7 @@ static Scanner scanner = new Scanner(System.in);
         }
     }
 
-    public static void mostrarCarrinho(Locacao carrinho, int id){
+    public static void mostrarCarrinho(Locacao carrinho, int id) throws Exception{
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("=====Seu_Carrinho=====");
@@ -80,9 +80,14 @@ static Scanner scanner = new Scanner(System.in);
 
         if (op == 1) {
             LocacaoDAO.criar(carrinho, id);
+            int idcar = LocacaoDAO.idcarrinho(id);
+            carrinho.setId(idcar);
             for(ItemLocacao item : carrinho.getItensLocacao()){
-                
+                item.setLocacao(carrinho);
+                System.out.println(item.getLocacao().getId());
+                ItemLocaDAO.atualizar(item);
             }
+            System.out.println("Aluguel Efetuado");
         }
         else{
             System.out.println("Continue comprando!");

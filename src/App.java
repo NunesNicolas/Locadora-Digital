@@ -5,7 +5,6 @@ import entidades.Usuario;
 import tela.MenuAdmin;
 import tela.MenuCliente;
 
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,7 +14,7 @@ import java.util.Scanner;
 
 public class App {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
         try (Scanner scanner = new Scanner(System.in)) {
             while (true) {
                 System.out.println("\n".repeat(50));
@@ -45,7 +44,7 @@ public class App {
         }
     }
 
-    public static void login() throws IOException {
+    public static void login() throws Exception {
         try (Scanner scanner = new Scanner(System.in)) {
             System.out.println("=== Login ===");
 
@@ -81,7 +80,7 @@ public class App {
         }
     }
 
-    public static void cadastrar() throws IOException {
+    public static void cadastrar() throws Exception {
         try (Scanner scanner = new Scanner(System.in)) {
             Usuario usuario = new Usuario();
 

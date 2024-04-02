@@ -23,7 +23,7 @@ public class Alugar {
             carrinho.setValor(carrinho.getValor() + itemlocacao.getValor());
 
             carrinho.getItensLocacao().add(itemlocacao);
-            // System.out.println(carrinho);
+            System.out.println(carrinho);
         }else{
 
         }

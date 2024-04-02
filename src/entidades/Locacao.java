@@ -13,30 +13,38 @@ public class Locacao {
     public int getId() {
         return id;
     }
-    public void setId(int id) {
-        this.id = id;
+
+    public Date getData() {
+        return data;
     }
+   
     public double getValor() {
         return valor;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public ArrayList<ItemLocacao> getItensLocacao() {
+        return itensLocacao;
+    }
+    
+    public void setId(int id) {
+        this.id = id;
     }
     public void setValor(double valor) {
         this.valor = valor;
     }
-    public Date getData() {
-        return data;
-    }
+  
     public void setData(Date data) {
         this.data = data;
     }
-    public ArrayList<ItemLocacao> getItensLocacao() {
-        return itensLocacao;
-    }
+   
     public void setItensLocacao(ItemLocacao itemlocacao) {
         this.itensLocacao.add(itemlocacao);
     }
-    public Usuario getUsuario() {
-        return usuario;
-    }
+   
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }

@@ -8,7 +8,7 @@ import entidades.Jogo;
 import entidades.Locacao;
 
 public class MenuCliente {
-public static void menuCliente(int id, Locacao carrinho) {
+public static void menuCliente(int id, Locacao carrinho) throws Exception {
     ItemLocacao item;
         try (Scanner scanner = new Scanner(System.in)) {
             while (true) {

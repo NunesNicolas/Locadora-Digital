@@ -52,6 +52,7 @@ public class JogoDAO {
             Connection conexao = Conexao.getConexao();
             String sql = "UPDATE jogo SET titulo = ?, preco = ?, descricao = ?, numeroDias = ?, plataforma = ?, memoria = ? WHERE id = ?";  
             PreparedStatement ps = conexao.prepareStatement(sql);
+            
             ps.setString(1, jogo.getTitulo());
             ps.setDouble(2, jogo.getPreco());
             ps.setString(3, jogo.getDescricao());

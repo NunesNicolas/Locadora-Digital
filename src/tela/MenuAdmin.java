@@ -120,61 +120,7 @@ public static void menuAdmin() throws IOException {
                             System.out.println("Digite quanto de MEMORIA: ");
                             int memoria2 = scanner.nextInt();
                             j.setMemoria(memoria2);
-
                         JogoDAO.atualizar(j);
-
-                        // try{
-                        //     Connection conexao = Conexao.getConexao();
-                        //     String sql = "SELECT * FROM jogo";
-                        //     Statement st = conexao.createStatement();
-                        //     ResultSet res = st.executeQuery(sql);
-
-                        //     while (res.next()) {
-                        //         if (nomeJogo.toLowerCase() == res.getString("titulo").toLowerCase()) {
-                        //             Jogo j = new Jogo();// Associa a categoria ao jogo
-
-                        //             j.setId(res.getInt("id"));
-
-                        //             System.out.println("Digite o TITULO: ");
-                        //             scanner.nextLine();
-                        //             String titulo2 = scanner.nextLine();
-                        //             j.setTitulo(titulo2.toLowerCase());
-
-                        //             System.out.println("Digite o PREÇO: ");
-                        //             double preco2 = scanner.nextDouble();
-                        //             j.setPreco(preco2);
-
-                        //             System.out.println("Digite a DESCRIÇÃO: ");
-                        //             String descricao2 = scanner.nextLine();
-                        //             j.setDescricao(descricao2);
-
-                        //             System.out.println("Digite o NUMEDO DE DIAS que pode ser alugado: ");
-                        //             int numdias2 = scanner.nextInt();
-                        //             j.setNumdias(numdias2);
-                                    
-                        //             System.out.println("Digite a PLATAFORMA que pertence: ");
-                        //             scanner.nextLine();
-                        //             String plataforma2 = scanner.nextLine();
-                        //             j.setPlataforma(plataforma2);
-
-                        //             System.out.println("Digite quanto de MEMORIA: ");
-                        //             int memoria2 = scanner.nextInt();
-                        //             j.setMemoria(memoria2);
-
-                        //             JogoDAO.atualizar(j);
-
-                        //             res.close();
-                        //             st.close();
-                        //         }
-                        //         else{
-                        //             System.out.println("Não existe jogo com esse nome");
-                        //         }
-
-                        //     }
-                        // }
-                        // catch (Exception e) {
-                        //     System.out.println(e);
-                        // }
             
                         break;
                     case 6:
