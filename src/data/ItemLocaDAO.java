@@ -91,7 +91,7 @@ public class ItemLocaDAO {
     }
 
     public static ItemLocacao buscloc(int jogo_id){
-        ItemLocacao item = new ItemLocacao();
+            ItemLocacao item = new ItemLocacao();
         try {
             Connection conexao = Conexao.getConexao();
             String sql = "SELECT * FROM itemlocacao WHERE Jogo_id = ?";

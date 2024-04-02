@@ -65,7 +65,7 @@ static Scanner scanner = new Scanner(System.in);
     }
 
     public static void mostrarCarrinho(Locacao carrinho, int id) throws Exception{
-        try (Scanner scanner = new Scanner(System.in)) {
+        Scanner scanner = new Scanner(System.in);
             System.out.println("=====Seu_Carrinho=====");
             for(ItemLocacao item : carrinho.getItensLocacao()){
                 System.out.println(JogoDAO.buscarJogoPeloID(item.getJogo().getId()));
@@ -89,9 +89,9 @@ static Scanner scanner = new Scanner(System.in);
                 System.out.println("Aluguel Efetuado");
             }
             else{
-                System.out.println("Continue comprando!");
+                System.out.println("Continue navegando!");
             }
         }
-    }
 }
+
 

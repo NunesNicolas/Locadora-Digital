@@ -11,7 +11,7 @@ import entidades.Locacao;
 public class MenuAdmin {
 public static void menuAdmin() throws IOException {
     Locacao carrinho = new Locacao();
-        try (Scanner scanner = new Scanner(System.in)) {
+        Scanner scanner = new Scanner(System.in);
             while (true) {
                 System.out.println("\n".repeat(50));
                 System.out.println("=== Menu Administrador ===");
@@ -76,8 +76,8 @@ public static void menuAdmin() throws IOException {
                     case 4:
                         System.out.println("Digite o nome do jogo que deseja excluir: ");
                         scanner.nextLine();
-                        String tituloJogo = scanner.nextLine();
-                        boolean jogoExcluido = JogoDAO.excluir(tituloJogo);
+                        String tituloJog = scanner.nextLine();
+                        boolean jogoExcluido = JogoDAO.excluir(tituloJog);
 
                         if (jogoExcluido == true) {
                             System.out.println("Jogo excluido com sucesso.");
@@ -157,5 +157,4 @@ public static void menuAdmin() throws IOException {
                 }
             }
         }
-    }
 }
