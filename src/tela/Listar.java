@@ -16,8 +16,7 @@ static Scanner scanner = new Scanner(System.in);
 
     public static void listarJogos(int id, Locacao carrinho){
         
-        
-        //System.out.println("\n".repeat(50));
+        System.out.println("\n".repeat(50));
         System.out.println("==========/Jogos-mais-recentes/==========");
         System.out.println(JogoDAO.listarGeral()+"\n");
         System.out.println("digite:" +"\n 1 - Menu principal" + "\n 2 - Buscar jogo");
@@ -32,7 +31,6 @@ static Scanner scanner = new Scanner(System.in);
         int opcao = scanner.nextInt();
         options(opcao, id, carrinho);
 }
-
 
 /*USUARIO*/
     public static void listarUser(){
@@ -56,7 +54,6 @@ static Scanner scanner = new Scanner(System.in);
                         System.out.println(j);
                         Alugar.adicionaraoCarrinho(id, carrinho, j);
                         
-    
             } catch (Exception erro) {
                 System.out.println(erro.getMessage());
             }
