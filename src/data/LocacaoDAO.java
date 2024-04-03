@@ -50,11 +50,9 @@ public class LocacaoDAO {
             comando.setInt(1, user_id);
             ResultSet res = comando.executeQuery();
     
-            // Verifique se há resultados antes de obter o valor
             if (res.next()) {
                 j = res.getInt("id");
             } else {
-                // Se não houver resultados, defina um valor padrão (por exemplo, -1)
                 j = 0;
                 System.out.println("deu erro menor");
             }

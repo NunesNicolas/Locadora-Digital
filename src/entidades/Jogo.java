@@ -4,7 +4,6 @@ public class Jogo extends Item {
     private String plataforma;
     private int memoria;
 
-
     public Jogo(String titulo, String descricao, int numdias, double preco, String plataforma, int memoria){
         super(titulo, descricao, numdias, preco);
         this.plataforma = plataforma;

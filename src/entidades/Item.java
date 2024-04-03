@@ -1,6 +1,6 @@
 package entidades;
 
-public class Item {
+public abstract class Item {
 
     int id;
     String titulo;
