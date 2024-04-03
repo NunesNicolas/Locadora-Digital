@@ -13,7 +13,7 @@ public static void menuAdmin() throws IOException {
     Locacao carrinho = new Locacao();
         Scanner scanner = new Scanner(System.in);
             while (true) {
-                //System.out.println("\n".repeat(50));
+                System.out.println("\n".repeat(50));
                 System.out.println("=== Menu Administrador ===");
                 System.out.println("Escolha uma opção:");
                 System.out.println("1 - Criar jogo");
@@ -24,8 +24,6 @@ public static void menuAdmin() throws IOException {
                 System.out.println("6 - Listar usuario");
                 System.out.println("7 - Excluir usuario");
                 System.out.println("0 - Sair");
-                //System.out.println("3 - Buscar usuario");
-                //System.out.println("8 - Atualizar usuario");
 
                 int opcao = scanner.nextInt();
 
@@ -146,7 +144,7 @@ public static void menuAdmin() throws IOException {
                             
                         break;
                     case 10:
-                        // Implementação 
+                  
                         break;
                     case 0:
                         System.out.println("Saindo...");

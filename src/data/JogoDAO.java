@@ -28,14 +28,8 @@ public class JogoDAO {
             ps.setInt(7, jogo.getMemoria());  
             int resultado = ps.executeUpdate();
             ps.close();
-                criarItem(jogo.getTitulo());
+            criarItem(jogo.getTitulo());
 
-                // ItemLocacao itemlocacao = new ItemLocacao();
-                // jogo.setId(buscarID(jogo.getTitulo()));
-                // itemlocacao.setJogo = jogo;
-                // itemlocacao.setValor(jogo.getPreco());
-                // ItemLocaDAO.criar(itemlocacao);
-           
             return resultado > 0;
         }
         
@@ -60,7 +54,7 @@ public class JogoDAO {
             ps.setInt(6, jogo.getMemoria());
             ps.setInt(7, jogo.getId());
             int resultado = ps.executeUpdate();
-            //System.out.println("receba");
+    
             ps.close();
 
             return resultado > 0;
@@ -109,7 +103,6 @@ public class JogoDAO {
                 j.setMemoria(res.getInt("memoria"));
                 res.close();
                 comando.close();
-                // System.out.println(j);
                 
             } else {
                 System.out.println("\nJogo não encontrado\n");
@@ -133,8 +126,6 @@ public class JogoDAO {
             ResultSet res = st.executeQuery(sql);
 
             while (res.next()) {
-                // Categoria c = new Categoria();
-                // c.setNome(res.getString("categoria"));
 
                 Jogo j = new Jogo();
                 j.setId(res.getInt("id"));
@@ -176,8 +167,7 @@ public class JogoDAO {
                 j.setMemoria(res.getInt("memoria"));
                 res.close();
                 comando.close();
-                // System.out.println(j+ "\n");
-                
+                                
             } else {
                 System.out.println("\nJogo não encontrado\n");
             }

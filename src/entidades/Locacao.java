@@ -6,7 +6,6 @@ public class Locacao {
     private int id;
     private double valor;
     private Date data;
-    // private ArrayList<ItemLocacao> itensLocacao;
     private Usuario usuario; 
     private ArrayList<ItemLocacao> itensLocacao = new ArrayList<>();
     

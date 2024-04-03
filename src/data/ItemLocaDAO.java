@@ -37,7 +37,6 @@ public class ItemLocaDAO {
         }
     }
 
-    //Metodo para atualizar um registro na tabela no BD
     public static boolean atualizar(ItemLocacao itemlocacao) throws Exception{
         try {
         Connection conn = Conexao.getConexao();
@@ -110,7 +109,6 @@ public class ItemLocaDAO {
                     il.setLocacao(lo);
                     il.getLocacao().setId(res.getInt("locacao_id"));
                 if (il.getLocacao().getId()== 0) {
-                // System.out.println(JogoDAO.buscarJogoPeloID(il.getJogo().getId()));
                 item = il;
                 }
             }

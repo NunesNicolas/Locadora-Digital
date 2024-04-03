@@ -27,6 +27,3 @@ public class Alugar {
             }
         }
     }
-    // public void carrinho(int id){
-    //     LocacaoDAO.criar(id, ItemLocacao, id);
-    // }

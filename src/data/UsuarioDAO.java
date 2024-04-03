@@ -83,9 +83,6 @@ public class UsuarioDAO {
             ResultSet res = st.executeQuery(sql);
 
             while (res.next()) {
-                // Categoria c = new Categoria();
-                // c.setNome(res.getString("categoria"));
-
                 Usuario u = new Usuario();// Associa a categoria ao jogo
                 u.setLogin(res.getString("login"));
                 u.setNome(res.getString("nome"));

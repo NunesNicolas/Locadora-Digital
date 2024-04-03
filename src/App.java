@@ -17,7 +17,7 @@ public class App {
     public static void main(String[] args) throws Exception {
         try (Scanner scanner = new Scanner(System.in)) {
             while (true) {
-                //System.out.println("\n".repeat(50));
+                System.out.println("\n".repeat(50));
                 System.out.println("Bem-vindo ao sistema de locadora digital!");
                 System.out.println("Escolha uma opção:");
                 System.out.println("1 - Login");

@@ -36,7 +36,7 @@ static Scanner scanner = new Scanner(System.in);
 
 /*USUARIO*/
     public static void listarUser(){
-        //System.out.println("\n".repeat(50));
+        System.out.println("\n".repeat(50));
         System.out.println("==========/Usuarios-Cadastrados/==========");
         System.out.println(UsuarioDAO.listar()+"\n");
     }
@@ -71,8 +71,6 @@ static Scanner scanner = new Scanner(System.in);
                 System.out.println(JogoDAO.buscarJogoPeloID(item.getJogo().getId()));
             }
             System.out.println("/n"+"=====VALOR TOTAL:"+carrinho.getValor()+"=====");
-
-            //LocacaoDAO.criar(carrinho, 0);
 
             System.out.println("Deseja finalizar a compra?\n1)Sim\n2)Não");
             int op = scanner.nextInt();
